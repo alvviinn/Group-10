@@ -17,7 +17,7 @@ Clone the repository:
 
 sh
 Copy code
-git clone https://github.com/your-username/calculator-app.git
+git clone https://github.com/alvviinn/Group-10.git
 Compile the Java files:
 
 sh
