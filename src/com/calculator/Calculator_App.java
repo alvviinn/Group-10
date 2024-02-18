@@ -21,7 +21,7 @@ public class Calculator_App extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
-        cal_screen = new JTextField("HINT : Press the \"=\" button twice to clear the screen");
+        cal_screen = new JTextField();
         cal_screen.setEditable(false);
         cal_screen.setBounds(0, 0, 700, 55);
         cal_screen.setBackground(Color.DARK_GRAY);
