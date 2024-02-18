@@ -10,7 +10,6 @@ Other functions (%)
 Usage
 To use the calculator, simply click on the buttons to input numbers and perform operations. The result will be displayed on the screen.
 
-Screenshots
 
 Installation
 Clone the repository:
