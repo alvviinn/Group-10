@@ -21,7 +21,7 @@ public class Calculator_App extends JFrame implements CalculatorButtonClickListe
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        Font screenFont = new Font ("Ink Free", Font.PLAIN, 25);
+        Font screenFont = new Font ("Times New Roman", Font.PLAIN, 25);
 
         JPanel calScreenPanel = new JPanel(new BorderLayout());
         cal_screen = new JTextField();
@@ -37,7 +37,7 @@ public class Calculator_App extends JFrame implements CalculatorButtonClickListe
         add(calScreenPanel, BorderLayout.NORTH);
 
 
-        Font buttonFont = new Font ("Ink Free", Font.PLAIN, 25);
+        Font buttonFont = new Font ("Times New", Font.PLAIN, 25);
         JPanel buttonPanel = new JPanel(new GridLayout(5, 10, 0, 0));
         // buttonPanel.setBounds(0, 95, 1000, 469);
         buttonPanel.setBackground(Color.WHITE );
