@@ -1,6 +1,8 @@
 package com.calculator;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+
 import java.awt.*;
 
 public class Calculator_App extends JFrame implements CalculatorButtonClickListener{
@@ -11,44 +13,58 @@ public class Calculator_App extends JFrame implements CalculatorButtonClickListe
     private double total_eva;
     private int equalClickCount = 0;
 
-    Font myFont = new Font ("Ink Free", Font.BOLD, 30);
+    
 
     public Calculator_App() {
         setTitle(" ");
-        setSize(700, 494); 
+        setSize(1000, 600); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(null);
+        setLayout(new BorderLayout());
 
+        Font screenFont = new Font ("Ink Free", Font.PLAIN, 25);
+
+        JPanel calScreenPanel = new JPanel(new BorderLayout());
         cal_screen = new JTextField();
         cal_screen.setEditable(false);
-        cal_screen.setBounds(0, 0, 700, 55);
-        cal_screen.setBackground(Color.DARK_GRAY);
+        // cal_screen.setBounds(0, 0, 1000, 100);
+        cal_screen.setBackground(Color.GRAY);
         cal_screen.setForeground(Color.WHITE);
         cal_screen.setHorizontalAlignment(SwingConstants.RIGHT);
-        add(cal_screen, BorderLayout.NORTH);
+        cal_screen.setPreferredSize(new Dimension(1000, 90));
+        cal_screen.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        cal_screen.setFont(screenFont);
+        calScreenPanel.add(cal_screen, BorderLayout.CENTER);
+        add(calScreenPanel, BorderLayout.NORTH);
 
+
+        Font buttonFont = new Font ("Ink Free", Font.PLAIN, 25);
         JPanel buttonPanel = new JPanel(new GridLayout(5, 10, 0, 0));
-        buttonPanel.setBounds(0, 56, 700, 400);
+        // buttonPanel.setBounds(0, 95, 1000, 469);
         buttonPanel.setBackground(Color.WHITE );
         String[] buttonLabels = {
-                "(", ")", "mc", "m+", "m-", "mr", "C", "+/-", "%", "÷",
+                "(", ")", "mc", "m+", "m-", "mr", " ", "+/-", "%", "÷",
                 "2ⁿᵈ", "x²", "x³", "xʸ", "eˣ", "10ˣ", "7", "8", "9", "x",
                 "⅟x", "√", "∛", "x√y", "ln", "log₁₀", "4", "5", "6", "-",
                 "x!", "sin", "cos", "tan", "e", "EE", "1", "2", "3", "+",
-                "Rad", "sinh", "cosh", "tanh", "π", "Rand", "0", " ", ".", "=",
+                "Rad", "sinh", "cosh", "tanh", "π", "Rand", "C", "0", ".", "=",
         };
 
         for (String label : buttonLabels) {
             JButton button = new JButton(label);
             button.setForeground(Color.WHITE);
             button.setBackground(Color.BLACK);
+            button.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
             if (label.equals("÷") || label.equals("x") || label.equals("-") || label.equals("+") || label.equals("=")) {
                 button.setBackground(Color.ORANGE);
+            }
+            if (label.matches("\\d")) {
+                button.setBackground(Color.GRAY);
             }
             if (label.equals("C")){
                 button.setBackground(Color.DARK_GRAY);
                 button.setForeground(Color.RED);
             }
+            button.setFont(buttonFont);
             buttonPanel.add(button);
             button.addActionListener(e -> {
                 String command = ((JButton) e.getSource()).getText();
